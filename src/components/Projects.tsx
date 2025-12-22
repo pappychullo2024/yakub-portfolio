@@ -24,7 +24,8 @@ export default function Projects() {
             Projects
           </h2>
           <p className="mt-4 text-gray-400">
-            A selection of products I’ve built and am actively working on.
+            A selection of real-world products I’ve built from production
+            e-commerce platforms to AI-powered applications.
           </p>
         </div>
 

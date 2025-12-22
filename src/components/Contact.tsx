@@ -52,10 +52,9 @@ export default function Contact() {
             </h2>
 
             <p className="mt-4 text-gray-400 max-w-md">
-              I’m open to remote opportunities, freelance projects, and
-              collaborations. Choose the platform that works best for you.
+              I’m open to remote roles, freelance projects, and collaborations.
+              Reach out through any platform below — I respond fast.
             </p>
-
             {/* Contact Icons */}
             <div className="mt-8 flex flex-wrap gap-5 text-gray-500 ">
               <ContactIcon
@@ -72,9 +71,9 @@ export default function Contact() {
                 hoverColor="group-hover:text-purple-500"
               />
               <ContactIcon
-                href=" wa.me/2347081654681"
+                href="https://wa.me/2347081654681"
                 icon={<FaWhatsapp />}
-                label="whatsapp"
+                label="WhatsApp"
                 hoverColor="group-hover:text-green-500"
               />
 
