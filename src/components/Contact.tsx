@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
 import {
   FaLinkedin,
   FaGithub,
@@ -13,6 +12,40 @@ import {
   FaEnvelope,
   FaGoogle,
 } from "react-icons/fa";
+import CircleImage from "./CircleImage";
+
+/* 🔹 Motion Variants */
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 1.08,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.42, 0, 1, 1],
+      // ✅ easeOut curve
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 1.05,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1], // ✅
+    },
+  },
+};
 
 export default function Contact() {
   return (
@@ -26,44 +59,42 @@ export default function Contact() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
           className="grid items-center gap-12 md:grid-cols-2"
         >
           {/* LEFT: Image */}
-          <div className="flex justify-center md:justify-start">
-            <div className="relative h-80 w-65 overflow-hidden rounded-xl border border-white/10">
-              <Image
-                src="/yakub.png"
-                alt="Yakub Ojoawo"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center md:justify-start"
+          >
+            <CircleImage src="/mine.png" alt="Yakub Ojoawo" size={280} />
+          </motion.div>
 
           {/* RIGHT: Text + Links */}
-          <div>
+          <motion.div variants={itemVariants}>
             <h2 className="text-3xl font-semibold tracking-tight text-white">
               Let’s work together
             </h2>
 
-            <p className="mt-4 text-gray-400 max-w-md">
+            <p className="mt-4 max-w-md text-gray-400">
               I’m open to remote roles, freelance projects, and collaborations.
               Reach out through any platform below — I respond fast.
             </p>
+
             {/* Contact Icons */}
-            <div className="mt-8 flex flex-wrap gap-5 text-gray-500 ">
+            <motion.div
+              variants={itemVariants}
+              className="mt-8 flex flex-wrap gap-5 text-gray-500"
+            >
               <ContactIcon
                 href="mailto:yakubojawo@gmail.com"
                 icon={<FaGoogle />}
                 label="Gmail"
                 hoverColor="group-hover:text-red-500"
               />
-
               <ContactIcon
                 href="mailto:korede.larry@yahoo.com"
                 icon={<FaEnvelope />}
@@ -76,7 +107,6 @@ export default function Contact() {
                 label="WhatsApp"
                 hoverColor="group-hover:text-green-500"
               />
-
               <ContactIcon
                 href="https://t.me/yakubojoawo"
                 icon={<FaTelegramPlane />}
@@ -101,22 +131,20 @@ export default function Contact() {
                 label="Instagram"
                 hoverColor="group-hover:text-pink-500"
               />
-
               <ContactIcon
                 href="https://www.facebook.com/share/1AXztcKr9f/"
                 icon={<FaFacebook />}
                 label="Facebook"
                 hoverColor="group-hover:text-blue-500"
               />
-
               <ContactIcon
                 href="https://www.tiktok.com/@meena_s_daddy"
                 icon={<FaTiktok />}
                 label="TikTok"
                 hoverColor="group-hover:text-cyan-400"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

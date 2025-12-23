@@ -1,7 +1,17 @@
 "use client";
 
+import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import { projects } from "../data/projects";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
 
 export default function Projects() {
   return (
@@ -9,16 +19,15 @@ export default function Projects() {
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-[0.12]"
-        style={{
-          backgroundImage: "url('/hero-bg.jpg')",
-        }}
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
       />
 
-      {/* Dark overlay for readability */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-6xl px-6">
+        {/* Section Header */}
         <div className="mb-12 max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight text-white">
             Projects
@@ -29,11 +38,22 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+        {/* Projects Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid gap-6 sm:grid-cols-2"
+        >
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              direction={index % 2 === 0 ? "left" : "right"}
+            />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
