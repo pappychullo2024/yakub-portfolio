@@ -11,13 +11,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Petclaws Essentials E-Commerce ",
     description:
       "A production-ready pet-focused platform designed to improve pet care, discovery, and engagement.",
     tech: ["Next.js", "React", "MongoDB"],
     live: "https://petclaws.com.ng",
     status: "Live",
     image: "/petclaws-background.png",
+  },
+  {
+    title: "Pompeo Pottery E-Commerce",
+    description:
+      "A production-ready e-commerce platform for handcrafted porcelain and pottery, featuring custom scroll animations, product discovery, and a refined shopping experience.",
+    tech: ["React", "Framer Motion", "CSS Modules"],
+    live: "https://webflow-pompeo.netlify.app/",
+    status: "Live",
+    image: "/pompeo-background.png",
   },
   {
     title: "PetAI",
