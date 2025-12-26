@@ -29,6 +29,21 @@ export const projects: Project[] = [
     image: "/pompeo-background.png",
   },
   {
+    title: "Analytics Admin Dashboard",
+    description:
+      "A product-style analytics dashboard inspired by modern analytics platforms, featuring KPI cards, interactive area charts, filter controls, and a scalable admin layout.",
+    tech: [
+      "Next.js (App Router)",
+      "React",
+      "Tailwind CSS",
+      "Recharts",
+      "Framer Motion",
+    ],
+    live: "https://analytics-admin-dashboard-five.vercel.app/dashboard",
+    status: "Live",
+    image: "/analytics-dashboard.png",
+  },
+  {
     title: "PetAI",
     description:
       "An AI-powered application for generating memes, transforming images into animations, and creative visual effects.",
